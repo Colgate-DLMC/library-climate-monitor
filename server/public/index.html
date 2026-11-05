@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library Climate</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Library climate</h1>
+    <div class="filters" role="group" aria-label="Dashboard filters">
+      <div class="seg" id="range" role="radiogroup" aria-label="Time range">
+        <button type="button" role="radio" data-v="24h">24 h</button>
+        <button type="button" role="radio" data-v="7d">7 days</button>
+        <button type="button" role="radio" data-v="30d">30 days</button>
+        <button type="button" role="radio" data-v="90d">90 days</button>
+      </div>
+      <div class="seg" id="unit" role="radiogroup" aria-label="Temperature unit">
+        <button type="button" role="radio" data-v="F">°F</button>
+        <button type="button" role="radio" data-v="C">°C</button>
+      </div>
+      <div class="seg" id="view" role="radiogroup" aria-label="View">
+        <button type="button" role="radio" data-v="chart">Charts</button>
+        <button type="button" role="radio" data-v="table">Table</button>
+      </div>
+      <a class="btn" id="csv" href="#" download>Download CSV</a>
+    </div>
+  </header>
+
+  <main>
+    <p id="notice" class="notice" role="status" hidden></p>
+
+    <section id="cards" class="cards" aria-label="Current readings"></section>
+
+    <section id="chart-view" aria-label="Charts">
+      <div id="legend" class="legend" aria-label="Series"></div>
+
+      <figure class="plot-card">
+        <figcaption><h2>Temperature <span class="unit" id="unit-t"></span></h2></figcaption>
+        <div class="plot"><canvas id="c-temp" role="img" aria-label="Temperature over time, one line per location. A table view is available."></canvas><div class="tip" id="tip-temp" hidden></div></div>
+      </figure>
+
+      <figure class="plot-card">
+        <figcaption><h2>Relative humidity <span class="unit">%</span></h2></figcaption>
+        <div class="plot"><canvas id="c-rh" role="img" aria-label="Relative humidity over time, one line per location. A table view is available."></canvas><div class="tip" id="tip-rh" hidden></div></div>
+      </figure>
+    </section>
+
+    <section id="table-view" aria-label="Summary table" hidden>
+      <div class="table-wrap"><table id="table"></table></div>
+    </section>
+  </main>
+
+  <footer id="foot"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
