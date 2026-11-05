@@ -1,0 +1,7 @@
+# Library Climate Monitor - hardening for Apache / LiteSpeed (cPanel)
+Options -Indexes
+
+# Never serve code-support files, config, schemas or database files directly.
+<FilesMatch "^(lib\.php|config(\.sample)?\.php|.*\.(sql|sqlite|db))$">
+    Require all denied
+</FilesMatch>

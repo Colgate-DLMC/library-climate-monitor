@@ -1,0 +1,14 @@
+# secrets / per-device config
+firmware/esp32-node/include/config.h
+firmware/esp32-node/include/root_ca.h
+server/public/config.php
+climate-config.php
+
+# build output
+firmware/esp32-node/.pio/
+.vscode/
+
+# local dev databases and caches
+*.sqlite
+__pycache__/
+.DS_Store
